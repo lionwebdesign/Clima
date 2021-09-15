@@ -4,7 +4,7 @@ from googletrans import Translator
 translator = Translator()
 
 api_key = "f1e4695138a9aa78063b3515d1b84957"
-city_name = "Curitiba"#input("Enter the city name: ")
+city_name = input("Enter the city name: ")
 requests_base_url = (f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}")
 response = requests.get(requests_base_url)
 x = response.json()
