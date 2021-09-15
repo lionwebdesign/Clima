@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "*"
+googletrans = "==3.1.0a0"
 
 [dev-packages]
 
