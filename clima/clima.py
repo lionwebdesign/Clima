@@ -6,9 +6,9 @@ class CLIMA():
         self.translator = Translator()
         self.api_key = "f1e4695138a9aa78063b3515d1b84957"
     
-    def get_clima(self):
-        self.city_name = input("Enter the city name: ")
-        self.requests_base_url = (f"https://api.openweathermap.org/data/2.5/weather?q={self.city_name}&appid={self.api_key}")
+    def get_clima(self, city_name):
+        self.city = city_name
+        self.requests_base_url = (f"https://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={self.api_key}")
         self.response = requests.get(self.requests_base_url)
         self.x = self.response.json()
         if self.x["cod"] != "404":
@@ -22,4 +22,4 @@ class CLIMA():
             self.weather_description = self.translator.translate(self.weather_description_eng, dest='es', src='en')
             print(f"La temperatura es de {str(self.current_temperature)}°C, presión Atmosferica de {str(self.current_pressure)} hPa, {str(self.current_humidity)}% de humedad, con {str(self.weather_description.text)}")
         else:  
-            print("City not found")
+            print(f"Lo siento no encontre {self.city} en mi base de datos")
